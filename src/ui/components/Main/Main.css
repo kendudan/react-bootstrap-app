@@ -1,0 +1,75 @@
+.mainInfo {
+    display: flex;
+    justify-content: center;
+    background-color: #FAFAFA;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 22px;
+    margin-bottom: 42px;
+
+}
+
+.userImage {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userImg {
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+}
+
+.allUserInfo{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+
+.userName,
+.stats,
+.fullName {
+    height: 33%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    font-size: 17px;
+    align-items: center;
+    padding-left: 7%;
+}
+
+#userNameH1 {
+    color: black;
+    padding: 0;
+    margin: 0;
+}
+
+.following-button {
+    background-color: #3897f0;
+    border: 1px solid #3897f0;
+    border-radius: 4px;
+    color: #fff;
+    position: relative;
+    margin-left: 5%;
+}
+
+.Stats a {
+    text-decoration: none;
+    color: black;
+}
+
+.statFollow {
+    margin-left: 8%;
+}
+
+.fullName h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.userDescription{
+    margin-left: 3%;
+}

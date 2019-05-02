@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 
-import Description from '../../components/Description/Description.jsx';
-import Points from '../../components/Points/Points.jsx';
+import Header from '../../components/Header/Header';
+import Main from '../../components/Main/Main';
+import styles from '../../../css/main.css';
 
 class MainPage extends Component {
     render () {
-        return <section>
-            <Description />
-            <Points />
-        </section>;
+        return <div className={styles.mainPage}>
+            <div className={styles.header}><Header /></div>
+            <div className={styles.main}><Main /></div>
+        </div>;
     }
 }
 

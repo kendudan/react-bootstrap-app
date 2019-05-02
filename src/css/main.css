@@ -1,6 +1,8 @@
 @import 'reset.css';
 @import 'fonts.css';
 
-* {
-    box-sizing: border-box;
+.mainPage {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
 }
