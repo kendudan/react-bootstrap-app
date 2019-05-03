@@ -31,8 +31,8 @@ class Main extends React.Component {
 
                         <div className={styles.userName}>
                             <h1 id="userNameH1">{userName}</h1>
-                            <div className={styles['following-button']}>
-                                <button>Подписаться</button>
+                            <div>
+                                <button className={styles['following-button']}>Подписаться</button>
                             </div>
                         </div>
 

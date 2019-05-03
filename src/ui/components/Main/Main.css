@@ -2,10 +2,11 @@
     display: flex;
     justify-content: center;
     background-color: #FAFAFA;
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 22px;
-    margin-bottom: 42px;
+    margin: 0 auto 30px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 60px 20px 0;
+    width: calc(100% - 40px);
 
 }
 
