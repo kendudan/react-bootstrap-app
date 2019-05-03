@@ -1,12 +1,13 @@
 .mainInfo {
     display: flex;
     justify-content: center;
+    align-items: stretch;
     background-color: #FAFAFA;
-    margin: 0 auto 30px;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
     padding: 60px 20px 0;
     width: calc(100% - 40px);
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
 
 }
 
@@ -31,21 +32,32 @@
 
 
 .userName,
-.stats,
-.fullName {
+.stats, .fullName {
     height: 33%;
     flex-grow: 1;
     display: flex;
     flex-direction: row;
-    font-size: 17px;
+    font-size: 16px;
     align-items: center;
     padding-left: 7%;
 }
 
-#userNameH1 {
+.userNameH1 {
     color: black;
     padding: 0;
-    margin: 0;
+    font-size: 28px;
+    line-height: 32px;
+    margin: -5px 0 -6px;
+}
+
+
+.fullName {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 33%;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .following-button {
@@ -57,7 +69,7 @@
     margin-left: 5%;
 }
 
-.Stats a {
+.stats a {
     text-decoration: none;
     color: black;
 }
@@ -71,6 +83,12 @@
     margin: 0;
 }
 
-.userDescription{
-    margin-left: 3%;
+.link {
+    color: #003569;
+    text-decoration: none;
+    font-family: 'HelveticaNeueCyrBold', serif;
+}
+
+.fontBold {
+    font-family: 'HelveticaNeueCyrBold', serif;
 }

@@ -30,21 +30,22 @@ class Main extends React.Component {
                     <div className={styles.allUserInfo}>
 
                         <div className={styles.userName}>
-                            <h1 id="userNameH1">{userName}</h1>
+                            <h1 className={styles.userNameH1}>{userName}</h1>
                             <div>
                                 <button className={styles['following-button']}>Подписаться</button>
                             </div>
                         </div>
 
                         <ul className={styles.stats}>
-                            <li><strong>{numOfPosts} </strong> публикаций </li>
-                            <li className={styles.statFollow}> <a><strong>{numOfFollowers} </strong> Подписчиков </a> </li>
-                            <li className={styles.statFollow}> <a><strong>{numOfFollowing} </strong> Подписки </a></li>
+                            <li><span className={styles.fontBold}>{numOfPosts} </span> публикаций </li>
+                            <li className={styles.statFollow}> <a><span className={styles.fontBold}>{numOfFollowers} </span> подписчиков </a> </li>
+                            <li className={styles.statFollow}> <a><span className={styles.fontBold}>{numOfFollowing} </span> Подписки </a></li>
                         </ul>
 
                         <div className={styles.fullName}>
-                            <h3>{fullName}</h3><br/>
-                            <span className={styles.userDescription}>{userDescription}</span>
+                            <h3 className={styles.fontBold}>{fullName}</h3>
+                            <span>{userDescription}</span>
+                            <a className={styles.link} href="http://globaldealfornature.org">globaldealfornature.org</a>
                         </div>
 
                     </div>
