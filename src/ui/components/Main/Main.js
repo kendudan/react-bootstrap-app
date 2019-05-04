@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Main.css';
+import Tabs from '../Tabs/Tabs';
 
 class Main extends React.Component {
     constructor (props) {
@@ -20,7 +21,7 @@ class Main extends React.Component {
     render () {
         const { userName, numOfFollowers, numOfPosts, numOfFollowing, userImageURL, fullName, userDescription } = this.state;
         return (
-            <div>
+            <div className={styles.parent}>
                 <div className={styles.mainInfo}>
 
                     <div className={styles.userImage}>
@@ -50,6 +51,16 @@ class Main extends React.Component {
 
                     </div>
 
+                </div>
+                <div className={styles.tabs}>
+                    <Tabs>
+                        <div label="ПУБЛИКАЦИИ">
+                            Тут будут публикации
+                        </div>
+                        <div label="ОТМЕТКИ">
+                            Тут будут отметки
+                        </div>
+                    </Tabs>
                 </div>
             </div>
         );
