@@ -1,21 +1,27 @@
 .nav {
+    position: fixed;
     display: flex;
     background-color: #fff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
     top: 0;
     width: 100%;
+    max-width: 1500px;
     height: 77px;
 }
-.nav-menus {
+
+.nav.scroll {
+    background-color: black;
+}
+.navMenus {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     height: 77px;
-    width: 70%;
+    width: 1035px;
     margin: 0 auto;
     padding: 26px 40px;
 }
-.nav-brand-logo {
+.navBrandLogo {
     display: block;
     background-position: -176px 0;
     background-image: url(../../../sprite.png);
@@ -30,8 +36,17 @@
     border: 1px solid #E0E0E0;
     padding: 6px;
     border-radius: 4px;
-    background: #FAFAFA;
+    background-color: #FAFAFA;
     text-align: center;
+    background-image:url('http://i47.tinypic.com/r02vbq.png');
+    background-repeat:no-repeat;
+    background-position: 30px;
+}
+
+.search:focus {
+    background-position: -20px;
+    padding-left: 26px;
+    text-align: left;
 }
 .logInBtn {
     background: #039BE5;

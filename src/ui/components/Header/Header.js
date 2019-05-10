@@ -5,18 +5,18 @@ class Header extends React.Component {
     render () {
         return (
             <nav className={styles.nav}>
-                <div className={styles['nav-menus']}>
+                <div className={styles.navMenus}>
                     <div>
-                        <a className={styles['nav-brand-logo']} href="/">
+                        <a className={styles.navBrandLogo} href="/">
                             Instagram
                         </a>
                     </div>
                     <div>
-                        <input type="text" className={styles['search']} placeholder="Поиск" />
+                        <input type="search" className={styles.search} placeholder="Поиск" />
                     </div>
                     <div>
-                        <button className={styles['logInBtn']}>Войти</button>
-                        <button className={styles['signUpBtn']}>Зарегистрироваться</button>
+                        <button className={styles.logInBtn}>Войти</button>
+                        <button className={styles.signUpBtn}>Зарегистрироваться</button>
                     </div>
                 </div>
             </nav>
