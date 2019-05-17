@@ -1,4 +1,48 @@
-.tabs {
+.parentTabs {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1534px;
+    background-color: #FAFAFA;
+
 }
+.tabs {
+    background-color: #FAFAFA;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #efefef;
+    color: #999;
+    flex-direction: row;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    max-width: 935px;
+    width: 100%;
+    height: 52px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+.tabContent {
+    display: flex;
+    flex-direction: column;
+
+}
+.tabListItem {
+    display: flex;
+    align-items: center;
+    margin-right: 60px;
+}
+.tabListItemActive {
+    display: flex;
+    align-items: center;
+    margin-right: 60px;
+    color: #262626;
+    border-top: 1px solid #262626;
+    margin-top: -1px;
+}
+.icon {
+    height: 12px;
+    width: 12px;
+}
+

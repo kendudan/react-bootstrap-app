@@ -5,13 +5,13 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 
-import getStore from './store/getStore';
+import configureStore from './store/getStore';
 
-const preloadedState = window.__PRELOADED_STATE__;
+//const preloadedState = window.__PRELOADED_STATE__;
 
-delete window.__PRELOADED_STATE__;
+//delete window.__PRELOADED_STATE__;
 
-const store = getStore(preloadedState);
+const store = configureStore();
 
 hydrate(
     <Provider store={store}>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './Tabs.css';
+import grid from '/client/images/activity-grid.png'
 
 class Tab extends Component {
     static propTypes = {
@@ -18,22 +20,16 @@ class Tab extends Component {
             onClick,
             props: {
                 activeTab,
-                label,
-            },
+                label
+            }
         } = this;
-
-        let className = 'tab-list-item';
-
-        if (activeTab === label) {
-            className += ' tab-list-active';
-        }
 
         return (
             <li
-                className={className}
+                className={activeTab === label ? styles.tabListItemActive : styles.tabListItem}
                 onClick={onClick}
             >
-                {label}
+                <img className={styles.icon} src={grid} alt='grid' />{label}
             </li>
         );
     }

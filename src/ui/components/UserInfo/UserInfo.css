@@ -1,8 +1,10 @@
 .parent {
+    display: flex;
+    align-content: stretch;
+    flex-direction: column;
     background-color: #FAFAFA;
-    padding: 20px;
     width: 100%;
-    max-width: 1500px;
+    max-width: 1534px;
 }
 
 .mainInfo {
@@ -11,29 +13,34 @@
     align-items: stretch;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
-    padding: 60px 20px 0;
+    padding: 57px 20px 0;
     width: calc(100% - 40px);
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
+    max-width: 935px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color: #262626;
+    margin: 0 auto 44px;
 
 }
 
 .userImage {
-    width: 30%;
+    width: 38%;
+    height: 170px;
     display: flex;
-    align-items: center;
+    margin-right: 30px;
     justify-content: center;
 }
 
 .userImg {
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     border-radius: 100%;
 }
 
 .allUserInfo{
     display: flex;
     flex-direction: column;
-    width: 977px;
+    width: 84%;
+    margin-top: 4px;
 }
 
 
@@ -44,13 +51,11 @@
     flex-direction: row;
     font-size: 16px;
     align-items: center;
-    padding-left: 7px;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .userNameH1 {
     color: black;
-    padding: 0;
     font-size: 28px;
     line-height: 32px;
     margin: -5px 0 -6px;
@@ -67,22 +72,38 @@
 }
 
 .followingButton {
+    width: 142px;
+    height: 28px;
     background-color: #3897f0;
     border: 1px solid #3897f0;
-    border-radius: 4px;
+    border-radius: 3px;
     color: #fff;
+    padding: 5px 9px;
+    margin-left: 20px;
+    font-weight: 600;
+    line-height: 16px;
+}
+
+.followingButtonClicked {
+    width: 118px;
+    height: 28px;
+    background-color: #FAFAFA;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    color: #262626;
     position: relative;
     padding: 5px 9px;
     margin-left: 7px;
+    font-family: 'HelveticaNeueCyrBold', serif;
+    font-weight: 600;
 }
-
 .stats a {
     text-decoration: none;
     color: black;
 }
 
 .statFollow {
-    margin-left: 8%;
+    margin-left: 40px;
 }
 
 .fullName h3 {

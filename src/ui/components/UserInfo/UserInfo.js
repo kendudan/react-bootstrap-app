@@ -13,15 +13,26 @@ class UserInfo extends React.Component {
                 userImageURL: '/client/images/leo.jpg',
                 fullName: 'Leonardo DiCaprio',
                 userDescription: 'Actor and Environmentalist'
-            }
+            },
+            isFollowed: false
         };
     }
 
     onClick = () => {
         window.open('http://globaldealfornature.org');
     };
+
+    addFollower = () => {
+        const { user, isFollowed } = this.state;
+        if (isFollowed) {
+            user.numOfFollowers -= 1;
+        } else {
+            user.numOfFollowers += 1;
+        }
+        this.setState({ user, isFollowed: !isFollowed });
+    };
     render () {
-        const { user } = this.state;
+        const { user, isFollowed } = this.state;
         return (
             <div className={styles.parent}>
                 <div className={styles.mainInfo}>
@@ -30,12 +41,16 @@ class UserInfo extends React.Component {
                         <img className={styles.userImg} src={user.userImageURL} alt={`Аватар ${user.name}`} />
                     </div>
 
-                    <div className={styles.allUserInfo}>
+                    <section className={styles.allUserInfo}>
 
                         <div className={styles.userName}>
                             <h1 className={styles.userNameH1}>{user.name}</h1>
                             <div>
-                                <button className={styles.followingButton}>Подписаться</button>
+                                <button
+                                    onClick={this.addFollower}
+                                    className={isFollowed ? styles.followingButtonClicked : styles.followingButton}>
+                                    {isFollowed ? <p>Подписки</p> : <p>Подписаться</p>}
+                                </button>
                             </div>
                         </div>
 
@@ -51,7 +66,7 @@ class UserInfo extends React.Component {
                             <a onClick={this.onClick} className={styles.link} href='/'>globaldealfornature.org</a>
                         </div>
 
-                    </div>
+                    </section>
 
                 </div>
 

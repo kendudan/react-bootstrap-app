@@ -1,27 +1,44 @@
 .nav {
-    position: fixed;
     display: flex;
     background-color: #fff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
-    top: 0;
     width: 100%;
-    max-width: 1500px;
+    max-width: 1534px;
     height: 77px;
+    -webkit-transition: height .2s ease-in-out;
+    transition: height .2s ease-in-out;
 }
 
-.nav.scroll {
-    background-color: black;
+.navScrolled {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1520px;
+    height: 52px;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+    top: 0;
+    -webkit-transition: height .2s ease-in-out;
+    transition: height .2s ease-in-out;
 }
 .navMenus {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 77px;
-    width: 1035px;
+    width: 100%;
     margin: 0 auto;
-    padding: 26px 40px;
+    max-width: 1010px;
+    padding: 26px 20px;
+}
+
+.navScrolled .navMenus {
+    height: 52px;
+    padding: 0 20px;
+    align-items: center;
 }
 .navBrandLogo {
+    flex: 1 9999 0%;
     display: block;
     background-position: -176px 0;
     background-image: url(../../../sprite.png);
@@ -30,23 +47,35 @@
     height: 35px;
     width: 176px;
     text-indent: -1000%
+
+}
+.navScrolled .navBrandLogo {
+    width: 39px;
 }
 .search {
-    width: 200px;
-    border: 1px solid #E0E0E0;
-    padding: 6px;
-    border-radius: 4px;
+    width: 215px;
+    height: 28px;
+    border: 1px solid #dbdbdb;
+    padding: 5px;
+    border-radius: 3px;
     background-color: #FAFAFA;
     text-align: center;
     background-image:url('http://i47.tinypic.com/r02vbq.png');
     background-repeat:no-repeat;
     background-position: 30px;
+    font-size: 14px;
+}
+.navScrolled .search {
+    margin-left: 136px;
 }
 
 .search:focus {
     background-position: -20px;
     padding-left: 26px;
     text-align: left;
+}
+.buttons {
+
 }
 .logInBtn {
     background: #039BE5;

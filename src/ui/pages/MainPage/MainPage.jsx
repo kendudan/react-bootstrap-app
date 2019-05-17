@@ -8,9 +8,9 @@ import Foto from '../../components/Tabs/Foto';
 class MainPage extends Component {
     render () {
         return <div className={styles.mainPage}>
-            <div className={styles.header}><Header /></div>
-            <div className={styles.main}><UserInfo /></div>
-            <div><Foto /></div>
+            <Header />
+            <UserInfo />
+            <Foto />
         </div>;
     }
 }

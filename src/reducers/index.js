@@ -1,9 +1,12 @@
-import { combineReducers } from 'redux';
+export const initialState = {
+    foto: {
+        fotoName: 'leo1',
+        user: 'leo',
+        likes: 2,
+        comments: 4
+    }
+};
 
-import application from './application';
-
-const reducers = combineReducers({
-    application
-});
-
-export default reducers;
+export default function rootReducer (state = initialState) {
+    return state;
+}
