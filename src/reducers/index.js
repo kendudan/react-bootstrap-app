@@ -1,9 +1,16 @@
+
 export const initialState = {
-    foto: {
-        fotoName: 'leo1',
-        user: 'leo',
-        likes: 2,
-        comments: 4
+    posts: {
+        id: 0,
+        imgUrl: '',
+        likes: 0,
+        comments: []
+    },
+    marks: {
+        id: 0,
+        imgUrl: '',
+        likes: 0,
+        comments: []
     }
 };
 

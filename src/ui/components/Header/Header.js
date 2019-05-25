@@ -39,7 +39,7 @@ class Header extends React.Component {
                     <div>
                         <input type="search" className={styles.search} placeholder="Поиск" />
                     </div>
-                    <div className={styles.buttons}>
+                    <div>
                         <button className={styles.logInBtn}>Войти</button>
                         <button className={styles.signUpBtn}>Зарегистрироваться</button>
                     </div>

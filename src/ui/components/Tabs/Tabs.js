@@ -6,14 +6,14 @@ import Tab from './Tab';
 
 class Tabs extends Component {
     static propTypes = {
-        children: PropTypes.instanceOf(Array).isRequired,
-    }
+        children: PropTypes.instanceOf(Array).isRequired
+    };
 
-    constructor(props) {
+    constructor (props) {
         super(props);
 
         this.state = {
-            activeTab: this.props.children[0].props.label,
+            activeTab: this.props.children[0].props.label
         };
     }
 
@@ -48,7 +48,7 @@ class Tabs extends Component {
                         );
                     })}
                 </ul>
-                <div className={styles.tabContent}>
+                <div>
                     {children.map((child) => {
                         if (child.props.label !== activeTab) return undefined;
                         return child.props.children;

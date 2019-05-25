@@ -1,0 +1,56 @@
+.modal {
+
+}
+.cover {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 935px;
+    margin: auto;
+}
+.fotoInfo {
+    width: 335px;
+    height: 600px;
+    background: white;
+}
+.img {
+    width: 600px;
+    height: 600px;
+}
+.header {
+    border-left: 1px solid #efefef;
+    height: 39px;
+    padding: 16px;
+    right: 0;
+    width: 302px;
+    border-bottom: 1px solid #efefef;
+}
+.comments {
+    height: 341px;
+    padding: 16px 12px;
+    width: 310px;
+    border-left: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+}
+.likeInfo {
+    height: 60px;
+    width: 302px;
+    padding: 8px 16px 16px 16px;
+    border-left: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+}
+.commentInput {
+    height: 18px;
+    width: 302px;
+    border-left: 1px solid #efefef;
+    padding: 25px 16px 25px 30px;
+}

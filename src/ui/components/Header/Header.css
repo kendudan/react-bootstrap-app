@@ -7,6 +7,7 @@
     height: 77px;
     -webkit-transition: height .2s ease-in-out;
     transition: height .2s ease-in-out;
+    z-index: 1;
 }
 
 .navScrolled {
@@ -74,9 +75,7 @@
     padding-left: 26px;
     text-align: left;
 }
-.buttons {
 
-}
 .logInBtn {
     background: #039BE5;
     color: white;
