@@ -1,38 +1,37 @@
 import React from 'react';
 import styles from './UserInfo.css';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import setSubscribes from '../../../actions/setSubscribes';
 
 class UserInfo extends React.Component {
-    constructor (props) {
-        super(props);
-        this.state = {
-            user: {
-                name: 'leonardodicaprio',
-                numOfPosts: 3435,
-                numOfFollowers: 234,
-                numOfFollowing: 45,
-                userImageURL: '/client/images/leo.jpg',
-                fullName: 'Leonardo DiCaprio',
-                userDescription: 'Actor and Environmentalist'
-            },
-            isFollowed: false
-        };
-    }
+    static propTypes = {
+        user: PropTypes.object.isRequired,
+        setSubscribes: PropTypes.func.isRequired
+    };
 
     onClick = () => {
         window.open('http://globaldealfornature.org');
     };
 
     addFollower = () => {
-        const { user, isFollowed } = this.state;
-        if (isFollowed) {
-            user.numOfFollowers -= 1;
-        } else {
-            user.numOfFollowers += 1;
+        const { user } = this.props;
+        if (this.props.user.isFollowed === false) {
+            this.props.setSubscribes({
+                ...user,
+                numOfFollowers: user.numOfFollowers + 1,
+                isFollowed: !user.isFollowed
+            });
+        } else if (this.props.user.isFollowed === true) {
+            this.props.setSubscribes({
+                ...user,
+                numOfFollowers: user.numOfFollowers - 1,
+                isFollowed: !user.isFollowed
+            });
         }
-        this.setState({ user, isFollowed: !isFollowed });
     };
     render () {
-        const { user, isFollowed } = this.state;
+        const { user } = this.props;
         return (
             <div className={styles.parent}>
                 <div className={styles.mainInfo}>
@@ -48,8 +47,8 @@ class UserInfo extends React.Component {
                             <div>
                                 <button
                                     onClick={this.addFollower}
-                                    className={isFollowed ? styles.followingButtonClicked : styles.followingButton}>
-                                    {isFollowed ? <p>Подписки</p> : <p>Подписаться</p>}
+                                    className={user.isFollowed ? styles.followingButtonClicked : styles.followingButton}>
+                                    {user.isFollowed ? <p>Подписки</p> : <p>Подписаться</p>}
                                 </button>
                             </div>
                         </div>
@@ -75,4 +74,16 @@ class UserInfo extends React.Component {
     }
 }
 
-export default UserInfo;
+const mapStateToProps = ({ userInfo }) => {
+    return {
+        user: userInfo.user
+    };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+    setSubscribes: (payload) => {
+        dispatch(setSubscribes(payload));
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserInfo);

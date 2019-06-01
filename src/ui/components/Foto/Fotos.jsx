@@ -2,15 +2,13 @@ import styles from './Foto.css';
 import Tabs from '../Tabs/Tabs';
 import React from 'react';
 import { connect } from 'react-redux';
-import { posts } from '../../../store/posts';
-import { marks } from '../../../store/marks';
 import PropTypes from 'prop-types';
 import FotoWrap from './FotoWrap';
 
 class Fotos extends React.Component {
     static propTypes = {
-        posts: PropTypes.array,
-        marks: PropTypes.array
+        posts: PropTypes.array.isRequired,
+        marks: PropTypes.array.isRequired
     };
     render () {
         const { posts, marks } = this.props;
@@ -18,10 +16,10 @@ class Fotos extends React.Component {
             <div className={styles.parentTabs}>
                 <Tabs className={styles.tabs}>
                     <div label="ПУБЛИКАЦИИ" >
-                        <FotoWrap fotos={posts} />
+                        <FotoWrap fotos={posts} fotosType="post" />
                     </div>
                     <div label="ОТМЕТКИ ">
-                        <FotoWrap fotos={marks} />
+                        <FotoWrap fotos={marks} fotosType="mark" />
                     </div>
                 </Tabs>
             </div>
@@ -29,10 +27,10 @@ class Fotos extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ posts, marks }) => {
     return {
-        posts: posts,
-        marks: marks
+        posts: posts.posts,
+        marks: marks.marks
     };
 };
 

@@ -5,10 +5,11 @@ import PropTypes from 'prop-types';
 
 class Foto extends React.Component {
     static propTypes = {
-        id: PropTypes.number,
-        image: PropTypes.string,
-        likes: PropTypes.number,
-        comments: PropTypes.number
+        id: PropTypes.number.isRequired,
+        image: PropTypes.string.isRequired,
+        likes: PropTypes.number.isRequired,
+        comments: PropTypes.number.isRequired,
+        fotosType: PropTypes.string.isRequired
     };
     constructor (props) {
         super(props);
@@ -22,7 +23,7 @@ class Foto extends React.Component {
         });
     };
     render () {
-        const { id, image, likes, comments } = this.props;
+        const { id, image, likes, comments, fotosType } = this.props;
         return (
             <li key={id}>
                 <div className={id % 3 === 0 ? styles.imgWrapper3 : styles.imgWrapper}>
@@ -35,10 +36,12 @@ class Foto extends React.Component {
                 {
                     this.state.showPopup &&
                         <Popup
+                            id={id}
                             image={image}
                             likes={likes}
                             comments={comments}
                             closePopup={() => this.togglePopup()}
+                            fotosType={fotosType}
                         />
                 }
             </li>

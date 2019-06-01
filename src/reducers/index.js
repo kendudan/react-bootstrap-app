@@ -1,19 +1,12 @@
+import { combineReducers } from 'redux';
+import posts from './posts';
+import marks from './marks';
+import userInfo from './userInfo';
 
-export const initialState = {
-    posts: {
-        id: 0,
-        imgUrl: '',
-        likes: 0,
-        comments: []
-    },
-    marks: {
-        id: 0,
-        imgUrl: '',
-        likes: 0,
-        comments: []
-    }
-};
+const reducers = combineReducers({
+    posts,
+    marks,
+    userInfo
+});
 
-export default function rootReducer (state = initialState) {
-    return state;
-}
+export default reducers;
