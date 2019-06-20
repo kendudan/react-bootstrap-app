@@ -34,13 +34,6 @@
     height: 150px;
     border-radius: 100%;
 }
-@media (max-width: 735px) {
-    .userImg {
-        height: 77px;
-        width: 77px;
-        margin-left: -30px;
-    }
-}
 .allUserInfo{
     display: flex;
     flex-direction: column;
@@ -74,25 +67,6 @@
     height: 33%;
     font-size: 16px;
     line-height: 24px;
-}
-@media (max-width: 735px) {
-    .stats {
-        display: none;
-    }
-    .mainInfo {
-        padding-top: 30px;
-    }
-    .userName {
-        flex-direction: column;
-        margin-right: 40px;
-    }
-    .userNameH1 {
-        margin: 0px 0 6px;
-    }
-    .fullName {
-        position: relative;
-        right: 143px;
-    }
 }
 
 .followingButton {
@@ -143,6 +117,70 @@
 
 .fontBold {
     font-family: 'HelveticaNeueCyrBold', serif;
+}
+@media (max-width: 735px) {
+    .stats {
+        position: relative;
+        top: 118px;
+        right: 135px;
+        width: 138%;
+        border-top: 1px solid #efefef;
+        padding-top: 15px;
+        padding-left: 25px;
+        font-size: 14px;
+        text-align: center;
+        color: #999;
+    }
+    .mainInfo {
+        padding-top: 30px;
+    }
+    .userName {
+        flex-direction: column;
+        margin-right: 40px;
+    }
+    .userNameH1 {
+        margin: 0px 0 6px;
+    }
+    .fullName {
+        position: relative;
+        right: 100px;
+        bottom: 39px;
+    }
+    .userImg {
+        height: 77px;
+        width: 77px;
+        margin-left: 30px;
+    }
+    .mainInfo {
+        margin: 0 auto 18px;
+    }
+    .statFollow {
+        margin-left: 40px;
+        margin-right: 21px;
+        text-align: center;
+        color: #999;
+    }
+    .stats a {
+        color: #999;
+    }
+    .allUserInfo{
+        width: 75%;
+    }
+}
+@media (max-width: 320px) {
+    .userImage {
+        width: 29%;
+    }
+    .stats {
+        right: 125px;
+        width: 147%;
+    }
+    .statFollow {
+        margin-left: 28px;
+    }
+    .userNameH1 {
+        font-size: 20px;
+    }
 }
 
 

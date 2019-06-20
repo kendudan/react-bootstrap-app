@@ -3,13 +3,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 321px 321px ;
-    width: 100%;
     max-width: 935px;
-}
-@media (max-width: 500px) {
-    .fotoRow {
-        grid-template-rows: 142px 142px;
-    }
 }
 .img {
     grid-column: span 1;
@@ -29,16 +23,6 @@
     margin-right: 28px;
     margin-bottom: 28px;
 }
-@media (max-width: 500px) {
-    .img {
-        margin-right: 3px;
-        margin-bottom: 3px;
-    }
-    .imgWrapper {
-        margin-right: 3px;
-        margin-bottom: 3px;
-    }
-}
 
 .spans {
     grid-column: span 1;
@@ -53,11 +37,7 @@
     justify-content: center;
     align-items: center;
 }
-@media (max-width: 500px) {
-    .spans {
-        top: -136px;
-    }
-}
+
 .imgWrapper .spans:hover {
     opacity: 1;
     cursor: pointer;
@@ -92,4 +72,53 @@
     font-size: 16px;
     margin-right: 25px;
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (max-width: 768px) {
+    .fotoRow {
+        grid-template-rows: 252px 252px;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    .spans {
+        top: -261px;
+    }
+}
+@media (max-width: 500px) {
+    .img {
+        margin-right: 3px;
+        margin-bottom: 3px;
+    }
+    .imgWrapper {
+        margin-right: 3px;
+        margin-bottom: 3px;
+        height: 98%;
+    }
+    .imgWrapper3 {
+        height: 98%;
+    }
+    .fotoRow {
+        grid-template-rows: 152px 152px;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .spans {
+        top: -155px;
+    }
+}
+@media (max-width: 375px) {
+    .fotoRow {
+        grid-template-rows: 123px 123px;
+    }
+    .spans {
+        top: -128px;
+    }
+}
+@media (max-width: 320px) {
+    .fotoRow {
+        grid-template-rows: 107px 107px;
+        grid-template-columns: repeat(3, 104px);
+    }
+    .spans {
+        top: -112px;
+    }
 }

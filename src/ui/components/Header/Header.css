@@ -65,11 +65,7 @@
     background-position: 30px;
     font-size: 14px;
 }
-@media (max-width: 500px) {
-    .search {
-        display: none;
-    }
-}
+
 .navScrolled .search {
     margin-left: 136px;
 }
@@ -94,4 +90,12 @@
     border: none;
     padding: 6px 10px;
     border-radius: 3px;
+}
+@media (max-width: 500px) {
+    .search {
+        display: none;
+    }
+    .signUpBtn {
+        display: none;
+    }
 }
