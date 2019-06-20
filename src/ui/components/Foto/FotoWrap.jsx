@@ -14,7 +14,15 @@ class FotoWrap extends React.Component {
             <ul className={styles.fotoRow}>
                 {
                     fotos.map((foto) =>
-                        <Foto id={foto.id} key={foto.id} image={foto.imgUrl} likes={foto.likes} comments={foto.comments} fotosType={fotosType} />
+                        <Foto
+                            id={foto.id}
+                            key={foto.id}
+                            image={foto.imgUrl}
+                            likes={foto.likes}
+                            isLiked={foto.isLiked}
+                            comments={foto.comments}
+                            commentsList={foto.commentsList}
+                            fotosType={fotosType} />
                     )
                 }
             </ul>

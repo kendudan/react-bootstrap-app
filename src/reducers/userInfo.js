@@ -2,6 +2,7 @@ import { SET_SUBSCRIBES } from '../types/types';
 
 const initialState = {
     user: {
+        id: 1,
         name: 'leonardodicaprio',
         numOfPosts: 3435,
         numOfFollowers: 234,

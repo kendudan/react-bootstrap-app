@@ -1,33 +1,51 @@
 
 .fotoRow {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 935px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 321px 321px ;
+    width: 100%;
+    max-width: 935px;
+}
+@media (max-width: 500px) {
+    .fotoRow {
+        grid-template-rows: 142px 142px;
+    }
 }
 .img {
-    height: 293px;
-    width: 293px;
+    grid-column: span 1;
+    height: 100%;
+    width: 100%;
     margin-right: 28px;
     margin-bottom: 28px;
 }
 .imgWrapper3 {
-    height: 293px;
-    width: 293px;
+    grid-column: span 1;
+    height: 91%;
 }
 
 .imgWrapper {
-    height: 293px;
-    width: 293px;
+    grid-column: span 1;
+    height: 91%;
     margin-right: 28px;
     margin-bottom: 28px;
 }
+@media (max-width: 500px) {
+    .img {
+        margin-right: 3px;
+        margin-bottom: 3px;
+    }
+    .imgWrapper {
+        margin-right: 3px;
+        margin-bottom: 3px;
+    }
+}
 
 .spans {
+    grid-column: span 1;
     position: relative;
     top: -323px;
-    height: 293px;
-    width: 293px;
+    height: 100%;
+    width: inherit;
     background-color: rgba(0, 0, 0, 0.3);
     opacity: 0;
     color: white;
@@ -35,7 +53,11 @@
     justify-content: center;
     align-items: center;
 }
-
+@media (max-width: 500px) {
+    .spans {
+        top: -136px;
+    }
+}
 .imgWrapper .spans:hover {
     opacity: 1;
     cursor: pointer;

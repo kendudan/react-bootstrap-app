@@ -4,7 +4,6 @@
     flex-direction: column;
     background-color: #FAFAFA;
     width: 100%;
-    max-width: 1534px;
 }
 
 .mainInfo {
@@ -35,7 +34,13 @@
     height: 150px;
     border-radius: 100%;
 }
-
+@media (max-width: 735px) {
+    .userImg {
+        height: 77px;
+        width: 77px;
+        margin-left: -30px;
+    }
+}
 .allUserInfo{
     display: flex;
     flex-direction: column;
@@ -69,6 +74,25 @@
     height: 33%;
     font-size: 16px;
     line-height: 24px;
+}
+@media (max-width: 735px) {
+    .stats {
+        display: none;
+    }
+    .mainInfo {
+        padding-top: 30px;
+    }
+    .userName {
+        flex-direction: column;
+        margin-right: 40px;
+    }
+    .userNameH1 {
+        margin: 0px 0 6px;
+    }
+    .fullName {
+        position: relative;
+        right: 143px;
+    }
 }
 
 .followingButton {

@@ -3,11 +3,10 @@
     background-color: #fff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
     width: 100%;
-    max-width: 1534px;
     height: 77px;
     -webkit-transition: height .2s ease-in-out;
     transition: height .2s ease-in-out;
-
+    z-index: 1;
 }
 
 .navScrolled {
@@ -15,13 +14,13 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 1520px;
     height: 52px;
     background-color: #fff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
     top: 0;
     -webkit-transition: height .2s ease-in-out;
     transition: height .2s ease-in-out;
+    z-index: 2;
 }
 .navMenus {
     display: flex;
@@ -65,6 +64,11 @@
     background-repeat:no-repeat;
     background-position: 30px;
     font-size: 14px;
+}
+@media (max-width: 500px) {
+    .search {
+        display: none;
+    }
 }
 .navScrolled .search {
     margin-left: 136px;

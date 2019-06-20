@@ -15,6 +15,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     left: 0;
     top: 0;
+    z-index: 2;
 }
 .container {
     position: fixed;
@@ -50,9 +51,11 @@
 .comments {
     height: 341px;
     padding: 16px 12px;
-    width: 310px;
     border-left: 1px solid #efefef;
     border-bottom: 1px solid #efefef;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none;
 }
 .likeInfo {
     height: 60px;
@@ -77,6 +80,7 @@
     position: fixed;
     top: 50%;
     left: 250px;
+    z-index: 3;
 }
 .nextButton {
     height: 40px;
@@ -87,7 +91,8 @@
     background-position: -305px -133px;
     position: fixed;
     top: 50%;
-    right: 260px;
+    right: 254px;
+    z-index: 3;
 }
 .heartOutline {
     height: 25px;
@@ -96,7 +101,19 @@
     background-image: url(../../../sprite.png);
     background-size: 405px 379px;
     background-repeat: no-repeat;
-    background-position: -126px -330px;
+    background-position: -123px -330px;
+    border: 0;
+    outline: none;
+}
+.heartOutlineClicked {
+    height: 25px;
+    width: 27px;
+    background-color: white;
+    background-image: url(../../../sprite.png);
+    background-size: 405px 379px;
+    background-repeat: no-repeat;
+    background-position: -199px -330px;
+    outline: none;
     border: 0;
 }
 .commentOutline {
@@ -106,8 +123,15 @@
     background-image: url(../../../sprite.png);
     background-size: 405px 379px;
     background-repeat: no-repeat;
-    background-position: -257px -177px;
+    background-position: -257px -176px;
     border: 0;
+    margin-left: 8px;
+}
+.text {
+    margin-top: 8px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    font-size: 14px;
 }
 .avatar {
     width: 32px;
@@ -120,4 +144,48 @@
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     font-size: 14px;
     font-weight: bold;
+}
+.shareButton {
+    color: #3897f0;
+    background: 0 0;
+    border: 0;
+    opacity: .3;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+.input {
+    border: 0;
+    font-size: 14px;
+    outline: 0;
+}
+.comment {
+    margin-left: -12px;
+    margin-right: 0;
+    padding: 19px 16px;
+    width: auto;
+    margin-top: -5px;
+}
+.commentList {
+
+}
+.commentsWrapper {
+    display: flex;
+}
+.commentUserName {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+.commentText {
+    margin-top: 10px;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+.commentWrap {
+    margin-left: 16px;
+}
+::-webkit-scrollbar { /* chrome based */
+    width: 0px;  /* ширина scrollbar'a */
+    background: transparent;  /* опционально */
 }

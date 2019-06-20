@@ -1,4 +1,4 @@
-import { SET_MARKS } from '../types/types';
+import { SET_LIKES_MARK, SET_MARKS } from '../types/types';
 
 const initialState = {
     marks: [
@@ -6,6 +6,7 @@ const initialState = {
             id: 1,
             imgUrl: '/client/images/marks/leo1.jpg',
             likes: 0,
+            isLiked: false,
             comments: 0,
             commentsList: []
         },
@@ -13,6 +14,7 @@ const initialState = {
             id: 2,
             imgUrl: '/client/images/marks/leo2.jpg',
             likes: 0,
+            isLiked: false,
             comments: 0,
             commentsList: []
         },
@@ -20,6 +22,7 @@ const initialState = {
             id: 3,
             imgUrl: '/client/images/marks/leo3.jpg',
             likes: 0,
+            isLiked: false,
             comments: 0,
             commentsList: []
         },
@@ -27,13 +30,15 @@ const initialState = {
             id: 4,
             imgUrl: '/client/images/marks/leo4.jpg',
             likes: 0,
+            isLiked: false,
             comments: 0,
             commentsList: []
         },
         {
-            id: 4,
+            id: 5,
             imgUrl: '/client/images/marks/leo5.jpg',
             likes: 0,
+            isLiked: false,
             comments: 0,
             commentsList: []
         }
@@ -43,6 +48,11 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
     case SET_MARKS:
+        return {
+            ...state,
+            marks: action.payload
+        };
+    case SET_LIKES_MARK:
         return {
             ...state,
             marks: action.payload

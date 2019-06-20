@@ -9,7 +9,9 @@ class Foto extends React.Component {
         image: PropTypes.string.isRequired,
         likes: PropTypes.number.isRequired,
         comments: PropTypes.number.isRequired,
-        fotosType: PropTypes.string.isRequired
+        fotosType: PropTypes.string.isRequired,
+        isLiked: PropTypes.bool.isRequired,
+        commentsList: PropTypes.array.isRequired
     };
     constructor (props) {
         super(props);
@@ -23,7 +25,7 @@ class Foto extends React.Component {
         });
     };
     render () {
-        const { id, image, likes, comments, fotosType } = this.props;
+        const { id, image, likes, isLiked, comments, commentsList, fotosType } = this.props;
         return (
             <li key={id}>
                 <div className={id % 3 === 0 ? styles.imgWrapper3 : styles.imgWrapper}>
@@ -39,7 +41,9 @@ class Foto extends React.Component {
                             id={id}
                             image={image}
                             likes={likes}
+                            isLiked={isLiked}
                             comments={comments}
+                            commentsList={commentsList}
                             closePopup={() => this.togglePopup()}
                             fotosType={fotosType}
                         />

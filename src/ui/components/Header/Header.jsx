@@ -32,9 +32,7 @@ class Header extends React.Component {
             <nav className={isScrolled ? styles.navScrolled : styles.nav}>
                 <div className={styles.navMenus}>
                     <div>
-                        <a className={styles.navBrandLogo} href="/">
-                            Instagram
-                        </a>
+                        <a className={styles.navBrandLogo} href="/" />
                     </div>
                     <div>
                         <input type="search" className={styles.search} placeholder="Поиск" />

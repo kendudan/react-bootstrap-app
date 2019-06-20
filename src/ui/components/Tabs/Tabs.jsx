@@ -50,7 +50,7 @@ class Tabs extends Component {
                 </ul>
                 <div>
                     {children.map((child) => {
-                        if (child.props.label !== activeTab) return undefined;
+                        if (child.props.label !== activeTab) return;
                         return child.props.children;
                     })}
                 </div>

@@ -3,8 +3,9 @@ import styles from './Popup.css';
 import PropTypes from 'prop-types';
 import { ESC_KEY_CODE } from '../../../constants/constants';
 import { connect } from 'react-redux';
-import setPosts from '../../../actions/setPosts';
-import setLikes from '../../../actions/setLikes';
+import setLikesPost from '../../../actions/setLikesPost';
+import setLikesMark from '../../../actions/setLikesMark';
+import AddComment from './AddComment';
 
 class Popup extends React.Component {
     static propTypes = {
@@ -14,8 +15,13 @@ class Popup extends React.Component {
         comments: PropTypes.number.isRequired,
         closePopup: PropTypes.func.isRequired,
         user: PropTypes.object.isRequired,
-        setLikes: PropTypes.func.isRequired,
-        posts: PropTypes.array.isRequired
+        setLikesPost: PropTypes.func.isRequired,
+        setLikesMark: PropTypes.func.isRequired,
+        posts: PropTypes.array.isRequired,
+        marks: PropTypes.array.isRequired,
+        fotosType: PropTypes.string.isRequired,
+        isLiked: PropTypes.bool.isRequired,
+        commentsList: PropTypes.array.isRequired
     };
     componentDidMount () {
         window.addEventListener('keydown', this.keyDownHandler);
@@ -32,58 +38,137 @@ class Popup extends React.Component {
             closePopup();
         }
     };
-    /*addComment = () => {
-        const { fotosType, posts, marks } = this.props;
+    state = {
+        fotoId: this.props.id,
+        image: this.props.image,
+        likes: this.props.likes,
+        isLiked: this.props.isLiked,
+        comments: this.props.comments,
+        commentsList: this.props.commentsList
+    };
+
+    addLike = (fotoId) => {
+        const { posts, marks, fotosType } = this.props;
+        const { likes } = this.state;
         if (fotosType === 'post') {
-            this.props.setPosts({
-                ...posts,
-                commentsList: [... newComment]
+            const newPosts = posts.map(post => {
+                if (post.id === fotoId) {
+                    post.likes = post.likes + 1;
+                    post.isLiked = true;
+                }
+
+                return post;
+            });
+            this.setState({ likes: likes + 1, isLiked: true });
+            this.props.setLikesPost(newPosts);
+        } else if (fotosType === 'mark') {
+            const newMarks = marks.map(mark => {
+                if (mark.id === fotoId) {
+                    mark.likes = mark.likes + 1;
+                    mark.isLiked = true;
+                }
+                return mark;
+            });
+            this.setState({ likes: likes + 1, isLiked: true });
+            this.props.setLikesMark(newMarks);
+        }
+    };
+    prevButtonClick = () => {
+        const { fotoId } = this.state;
+        const { posts, marks, fotosType } = this.props;
+        if (fotosType === 'post') {
+            const post = posts.find(item => item.id === (fotoId - 1));
+            this.setState({
+                fotoId: post.id,
+                image: post.imgUrl,
+                likes: post.likes,
+                isLiked: post.isLiked,
+                comments: post.comments,
+                commentsList: post.commentsList
+            });
+        } else if (fotosType === 'mark') {
+            const mark = marks.find(item => item.id === (fotoId - 1));
+            this.setState({
+                fotoId: mark.id,
+                image: mark.imgUrl,
+                likes: mark.likes,
+                isLiked: mark.isLiked,
+                comments: mark.comments,
+                commentsList: mark.commentsList
             });
         }
-    };*/
-    addLike = (id) => {
-        const { posts } = this.props;
-        const post = posts.find((x) => x.id === id);
-        this.props.setLikes({
-            ...posts,
-            post: post.likes + 1
-        });
     };
-    /*state = {
-        likes: this.props.likes
+    nextButtonClick = () => {
+        const { fotoId } = this.state;
+        const { posts, marks, fotosType } = this.props;
+        if (fotosType === 'post') {
+            const post = posts.find(item => item.id === (fotoId + 1));
+            this.setState({
+                fotoId: post.id,
+                image: post.imgUrl,
+                likes: post.likes,
+                isLiked: post.isLiked,
+                comments: post.comments,
+                commentsList: post.commentsList
+            });
+        } else if (fotosType === 'mark') {
+            const mark = marks.find(item => item.id === (fotoId + 1));
+            this.setState({
+                fotoId: mark.id,
+                image: mark.imgUrl,
+                likes: mark.likes,
+                isLiked: mark.isLiked,
+                comments: mark.comments,
+                commentsList: mark.commentsList
+            });
+        }
     };
-    addLikes = () => {
-        const { likes } = this.state;
-        this.setState({ likes: likes + 1 });
-    }*/
     render () {
-        const { id, image, likes, comments, closePopup, user } = this.props;
+        const { closePopup, user, fotosType } = this.props;
+        const { fotoId, image, likes, isLiked, comments, commentsList } = this.state;
+        const fotos = fotosType === 'post' ? this.props.posts : this.props.marks;
         return (
             <div className={styles.modal}>
                 <div className={styles.cover} onClick={() => closePopup()} onKeyDown={this.keyDownHandler} />
-                <a href='#' className={styles.prevButton} />
+                {fotoId === 1 ? <span /> : <a href='#' onClick={this.prevButtonClick} className={styles.prevButton} />}
                 <div className={styles.container}>
-                    <img className={styles.img} id={id} src={image} alt='foto'/>
+                    <img className={styles.img} id={fotoId} src={image} alt='foto'/>
                     <div className={styles.fotoInfo}>
                         <div className={styles.header}>
                             <img src={user.userImageURL} className={styles.avatar} alt='avatar' />
                             <p className={styles.userName}>{user.name}</p>
                         </div>
                         <div className={styles.comments}>
-                            {comments}
+                            <ul className={styles.commentList}>
+                                {commentsList.map((comment) => {
+                                    return <li className={styles.comment} key={comment.commentId}>
+                                        <div className={styles.commentsWrapper}>
+                                            <img src={user.userImageURL} className={styles.avatar} alt='avatar' />
+                                            <div className={styles.commentWrap}>
+                                                <h2 className={styles.commentUserName}>{user.name}</h2>
+                                                <span className={styles.commentText}>{comment.commentText}</span>
+                                            </div>
+                                        </div>
+                                    </li>;
+                                })}
+                            </ul>
                         </div>
                         <div className={styles.likeInfo}>
-                            <button className={styles.heartOutline} onClick={(e) => this.addLike(id, e)}/>
-                            <button className={styles.commentOutline} />
-                            {likes}
+                            <button className={isLiked === false ? styles.heartOutline : styles.heartOutlineClicked} onClick={(e) => this.addLike(fotoId, e)}/>
+                            <button className={styles.commentOutline} /><br />
+                            <p className={styles.text}>{likes} отметок "Нравится"</p>
                         </div>
                         <div className={styles.commentInput}>
-                            <input type='text' placeholder='Добавьте комментарий' />
-                            <button>Опубликовать</button>
+                            <AddComment
+                                fotoId={fotoId}
+                                fotosType={fotosType}
+                                comments={comments}
+                                commentsList={commentsList}
+                            />
                         </div>
                     </div>
                 </div>
-                <a href='#' className={styles.nextButton} />
+                {fotoId === fotos.length ? <span /> : <a href='#' onClick={this.nextButtonClick} className={styles.nextButton} />}
             </div>
         );
     }
@@ -96,8 +181,11 @@ const mapStateToProps = ({ userInfo, posts, marks }) => {
     };
 };
 const mapDispatchToProps = (dispatch) => ({
-    setLikes: (payload) => {
-        dispatch(setLikes(payload));
+    setLikesPost: (payload) => {
+        dispatch(setLikesPost(payload));
+    },
+    setLikesMark: (payload) => {
+        dispatch(setLikesMark(payload));
     }
 });
 
